@@ -34,3 +34,19 @@ for cls, count in zip(classes, counts):
     print(f"\tClasse {cls}: {count} esempi ({count / len(y) * 100:.2f}%)")
 
 print_instances_table(X,feature_names,5)
+
+#Pivot Tree 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+pt = PivotTree(
+    max_depth=3,
+    min_samples_leaf=2,
+    model_type='clf',
+    pairwise_metric='euclidean',
+    random_state=42,
+    verbose=True
+)
+
+pt.fit(X_train, y_train)
+
+pivot_tree= pt.print_tree()
