@@ -1,23 +1,37 @@
-name: ML
+name: PW_ML
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
-  - python=3.10
-  - pip
-  - numpy=2.0.1
-  - pandas=2.2.3
-  - scipy=1.15.3
-  - numexpr=2.10.1
-  - bottleneck=1.4.2
-  - python-dateutil=2.9.0
-  - pytz=2024.1
-  - tzdata=2025b
-  - tabulate=0.9.0
-  - six=1.17.0
-  - threadpoolctl=3.6.0
-  - joblib=1.5.1
-  - scikit-learn=1.6.1
-  - packaging=25.0
-  - pip:
-      - scikit-learn-extra @ git+https://github.com/TimotheeMathieu/scikit-learn-extra@21f5aa70c18e4615aaf700905014e9bf84c0d4f3
+  - blas=1.0=openblas
+  - bzip2=1.0.8=h80987f9_6
+  - ca-certificates=2025.4.26=hbd8a1cb_0
+  - joblib=1.4.2=py310hca03da5_0
+  - kmedoids=0.5.3.1=py310he30e28b_0
+  - libcxx=20.1.5=ha82da77_0
+  - libffi=3.4.4=hca03da5_1
+  - libgfortran=5.0.0=11_3_0_hca03da5_28
+  - libgfortran5=11.3.0=h009349e_28
+  - libopenblas=0.3.29=hea593b9_0
+  - libsqlite=3.46.0=hfb93653_0
+  - libzlib=1.2.13=hfb2fe0b_6
+  - llvm-openmp=20.1.5=hdb05f8b_0
+  - ncurses=6.4=h313beb8_0
+  - numpy=2.0.1=py310h3b2db8e_1
+  - numpy-base=2.0.1=py310ha9811e2_1
+  - openssl=3.5.0=h81ee809_1
+  - pip=25.1=pyhc872135_2
+  - python=3.10.13=h2469fbe_1_cpython
+  - python_abi=3.10=7_cp310
+  - readline=8.2=h1a28f6b_0
+  - scikit-learn=1.6.1=py310h313beb8_0
+  - scipy=1.15.3=py310hb81b3df_0
+  - setuptools=78.1.1=py310hca03da5_0
+  - sqlite=3.45.3=h80987f9_0
+  - threadpoolctl=3.5.0=py310h33ce5c2_0
+  - tk=8.6.14=h6ba3021_0
+  - typing=3.10.0.0=py310hca03da5_0
+  - tzdata=2025b=h04d1e81_0
+  - wheel=0.45.1=py310hca03da5_0
+  - xz=5.6.4=h80987f9_1
+  - zlib=1.2.13=hfb2fe0b_6
