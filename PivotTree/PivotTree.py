@@ -3,6 +3,7 @@ from RuleTree import *
 import kmedoids
 import random
 import math
+import time
 
 from scipy.sparse import csc_matrix
 from sklearn.metrics import pairwise_distances
