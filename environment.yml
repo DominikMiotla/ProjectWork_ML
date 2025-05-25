@@ -28,6 +28,7 @@ dependencies:
   - scipy=1.15.3=py310hb81b3df_0
   - setuptools=78.1.1=py310hca03da5_0
   - sqlite=3.45.3=h80987f9_0
+  - tabulate=0.9.0=py310hca03da5_0
   - threadpoolctl=3.5.0=py310h33ce5c2_0
   - tk=8.6.14=h6ba3021_0
   - typing=3.10.0.0=py310hca03da5_0
@@ -35,3 +36,4 @@ dependencies:
   - wheel=0.45.1=py310hca03da5_0
   - xz=5.6.4=h80987f9_1
   - zlib=1.2.13=hfb2fe0b_6
+prefix: /Users/dominikmiotla/miniconda3/envs/PW_ML
