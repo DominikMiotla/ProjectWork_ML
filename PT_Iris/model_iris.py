@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from tabulate import tabulate
+import joblib
 
 from PivotTree import PivotTree
 from Utilis import print_instances_table
@@ -49,6 +50,7 @@ pt = PivotTree(
 
 print("\n--- Inizio apprendimento modello ---")
 pt.fit(X_train, y_train)
+joblib.dump(pt, 'pivot_tree_iris.pkl')
 print("\t***Fine apprendimento modello***\n")
 
 print("---Generazione file di valutazione ---")
