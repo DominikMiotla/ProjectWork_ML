@@ -76,4 +76,4 @@ def report_modello(modello, dati_test, target_names=None, nome_file='valutazione
         for line in lines:
             f.write(line + "\n")
 
-    print(f"\nRisultati salvati in '{nome_file}' (formato .txt)")
+    print(f"\t***Risultati salvati in '{nome_file}' (formato .txt)\n\n")

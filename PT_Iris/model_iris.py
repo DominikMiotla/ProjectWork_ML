@@ -7,7 +7,7 @@ from tabulate import tabulate
 
 from PivotTree import PivotTree
 from Utilis import print_instances_table
-
+from Utilis import report_modello
 
 #Caricamento dataset + info sul dataset
 data = load_iris()
@@ -47,6 +47,10 @@ pt = PivotTree(
     verbose=True
 )
 
+print("\n--- Inizio apprendimento modello ---")
 pt.fit(X_train, y_train)
+print("\t***Fine apprendimento modello***\n")
 
-pivot_tree= pt.print_tree()
+print("---Generazione file di valutazione ---")
+report_modello(pt, (X_test, y_test))
+
