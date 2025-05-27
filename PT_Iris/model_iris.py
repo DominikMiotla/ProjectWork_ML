@@ -9,6 +9,8 @@ import joblib
 from PivotTree import PivotTree
 from Utilis import print_instances_table
 from Utilis import report_modello
+from Utilis import get_pivots_and_medoids
+from Utilis import visualize_tree_with_pivots
 
 #Caricamento dataset + info sul dataset
 data = load_iris()
@@ -56,3 +58,14 @@ print("\t***Fine apprendimento modello***\n")
 print("---Generazione file di valutazione ---")
 report_modello(pt, (X_test, y_test))
 
+
+
+#pivots_data = get_pivots_and_medoids(pt)
+
+# Stampa le informazioni per ogni nodo
+#for node_id, data in pivots_data.items():
+#    print(f"Nodo {node_id}:")
+#    print("  Pivot discriminativi:", data['discriminative_pivots']['indexes'])
+#    print("  Medoidi descrittivi:", data['descriptive_pivots']['indexes'])
+
+visualize_tree_with_pivots(pt, feature_names=feature_names)
