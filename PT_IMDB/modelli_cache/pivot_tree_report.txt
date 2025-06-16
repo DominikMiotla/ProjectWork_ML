@@ -1,0 +1,8 @@
+[2025-06-16 16:43:01.574464] Params: max_depth-3_min_samples_leaf-3_allow_oblique_splits-False | Accuracy: 0.7649
+[2025-06-16 16:44:32.136841] Params: max_depth-3_min_samples_leaf-3_allow_oblique_splits-True | Accuracy: 0.7649
+[2025-06-16 16:46:04.680942] Params: max_depth-3_min_samples_leaf-8_allow_oblique_splits-False | Accuracy: 0.7649
+[2025-06-16 16:47:38.535879] Params: max_depth-3_min_samples_leaf-8_allow_oblique_splits-True | Accuracy: 0.7649
+[2025-06-16 16:49:19.912643] Params: max_depth-4_min_samples_leaf-3_allow_oblique_splits-False | Accuracy: 0.7811
+[2025-06-16 16:51:03.848236] Params: max_depth-4_min_samples_leaf-3_allow_oblique_splits-True | Accuracy: 0.7811
+[2025-06-16 16:52:47.517679] Params: max_depth-4_min_samples_leaf-8_allow_oblique_splits-False | Accuracy: 0.7811
+[2025-06-16 16:54:34.196360] Params: max_depth-4_min_samples_leaf-8_allow_oblique_splits-True | Accuracy: 0.7811

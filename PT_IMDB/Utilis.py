@@ -168,3 +168,29 @@ def visualize_tree_with_pivots(pivot_tree, feature_names=None, output_file="albe
                     f.write(f"    - {pivot}\n")
             
             f.write("\n" + "-"*40 + "\n")
+
+
+def show_decision_path(pivot_tree,sample_idx, X_test,y_test):
+    """
+    Mostra il percorso decisionale seguito da un modello PivotTree per classificare un campione di test.
+
+    Parametri:
+    - pivot_tree: oggetto del modello PivotTree addestrato, che supporta i metodi `predict` con le opzioni `get_leaf` e `get_rule`.
+    - sample_idx: indice del campione in X_test da analizzare.
+    - X_test: insieme dei dati di test.
+    - y_test: etichette reali corrispondenti a X_test.
+
+    Output:
+    Stampa a console:
+    - Una porzione del testo del campione selezionato.
+    - La classe predetta e quella reale.
+    - Il percorso decisionale (regole) seguito dal modello per arrivare alla predizione.
+    """
+    prediction, leaf_id, rule = pivot_tree.predict(
+    X_test[sample_idx:sample_idx+1], 
+    get_leaf=True, 
+    get_rule=True
+    )
+    print(f"\nSample: {X_test[sample_idx][:50]}...")
+    print(f"Predicted: {prediction[0]}, Actual: {y_test[sample_idx]}")
+    print(f"Decision path: {rule[0]}")

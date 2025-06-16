@@ -4,13 +4,18 @@ import os
 import joblib
 from sentence_transformers import SentenceTransformer
 from PivotTree import PivotTree
+from itertools import product
+from datetime import datetime
 
-# Configurazione dei percorsi
+from Utilis import report_modello
+from Utilis import visualize_tree_with_pivots
+from Utilis import show_decision_path
+
 current_dir = os.getcwd()
 data_dir = os.path.join(current_dir, "tensorflow_datasets")
-os.makedirs(data_dir, exist_ok=True)  # Crea la directory se non esiste
+os.makedirs(data_dir, exist_ok=True)
 
-# 1. Caricamento dataset con cache
+#Caricamento del dataset con cache: il dataset viene scaricato una sola
 def load_dataset():
     dataset_file = os.path.join(data_dir, "imdb_dataset.joblib")
     
@@ -30,7 +35,6 @@ def load_dataset():
         data_dir=data_dir
     )
 
-    # Estrazione testi e etichette
     train_texts, train_labels = [], []
     test_texts, test_labels = [], []
 
@@ -59,7 +63,7 @@ train_labels = dataset['train_labels']
 test_texts = dataset['test_texts']
 test_labels = dataset['test_labels']
 
-# 2. Embedding con cache
+#Embedding con cache
 def get_embeddings():
     embeddings_file = os.path.join(data_dir, "embeddings.joblib")
     
@@ -87,16 +91,8 @@ embeddings = get_embeddings()
 train_embeddings = embeddings['train']
 test_embeddings = embeddings['test']
 
-# 3. PivotTree con cache
-def train_pivot_tree():
-    tree_file = os.path.join(data_dir, "pivot_tree_imdb_2.pkl")
-    
-    if os.path.exists(tree_file):
-        print("Caricamento PivotTree da cache...")
-        return joblib.load(tree_file)
-        
-    print("Addestramento PivotTree...")
-    pt = PivotTree(
+print("Addestramento PivotTree...")
+pt = PivotTree(
     max_depth=4,
     min_samples_leaf=8,
     model_type='clf',
@@ -104,27 +100,16 @@ def train_pivot_tree():
     random_state=42,
     verbose=True
 )
-    
-    pt.fit(train_embeddings, train_labels)
-    joblib.dump(pt, tree_file)
-    return pt
 
-# Addestra o carica il modello
-pivot_tree = train_pivot_tree()
+pt.fit(train_embeddings, train_labels)
 
-# 4. Valutazione e test (senza cache)
-predictions = pivot_tree.predict(test_embeddings)
+predictions = pt.predict(test_embeddings)
 accuracy = np.mean(predictions == test_labels)
 print(f"Test Accuracy: {accuracy:.4f}")
 
+print("---Generazione file di valutazione ---")
+report_modello(pt, (test_embeddings, test_labels))
 
-# Esempio di predizione con spiegazione
-sample_idx = 4
-prediction, leaf_id, rule = pivot_tree.predict(
-    test_embeddings[sample_idx:sample_idx+1], 
-    get_leaf=True, 
-    get_rule=True
-)
-print(f"\nSample: {test_texts[sample_idx][:50]}...")
-print(f"Predicted: {prediction[0]}, Actual: {test_labels[sample_idx]}")
-print(f"Decision path: {rule[0]}")
+visualize_tree_with_pivots(pt)
+
+show_decision_path(pt,2, test_embeddings,test_labels)
