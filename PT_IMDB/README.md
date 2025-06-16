@@ -4,16 +4,16 @@ Questo progetto implementa una variante degli alberi decisionali chiamata **Pivo
 
 ---
 
-## ✨ Caratteristiche Principali
+## Caratteristiche Principali
 
-- 🚀 Albero decisionale basato su pivot che opera nello spazio degli embedding  
-- 🔍 Percorsi decisionali interpretabili con visualizzazione dei pivot  
-- 📊 Tuning automatico degli iperparametri per prestazioni ottimali  
-- 💾 Meccanismo di caching per embedding e dataset  
-- 📝 Report di valutazione completi con visualizzazioni  
+- Albero decisionale basato su pivot che opera nello spazio degli embedding  
+- Percorsi decisionali interpretabili con visualizzazione dei pivot  
+- Tuning automatico degli iperparametri per prestazioni ottimali  
+- Meccanismo di caching per embedding e dataset  
+- Report di valutazione completi con visualizzazioni  
 
 
-## 🚀 Utilizzo
+## Utilizzo
 
 ### Allenamento e Valutazione del Modello
 
@@ -49,7 +49,7 @@ show_decision_path(pt, sample_idx=2, X_test=test_embeddings, y_test=test_labels)
 
 ---
 
-## 🗂️ Struttura del Progetto
+## Struttura del Progetto
 
 ```
 pivottree-imdb-sentiment/
@@ -67,7 +67,7 @@ pivottree-imdb-sentiment/
 
 ---
 
-## 📈 Risultati
+## Risultati
 
 Il miglior modello raggiunge un'accuratezza del **78.11%** sul test set IMDB:
 
@@ -87,7 +87,7 @@ Report di Classificazione:
 
 ---
 
-## 🧠 Concetti Chiave
+## Concetti Chiave
 
 ### Componenti di PivotTree
 
