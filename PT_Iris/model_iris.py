@@ -5,12 +5,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from tabulate import tabulate
 import joblib
-
 from PivotTree import PivotTree
 from Utilis import print_instances_table
 from Utilis import report_modello
 from Utilis import get_pivots_and_medoids
 from Utilis import visualize_tree_with_pivots
+from Utilis import show_decision_path
+
 
 #Caricamento dataset + info sul dataset
 data = load_iris()
@@ -59,3 +60,5 @@ print("---Generazione file di valutazione ---")
 report_modello(pt, (X_test, y_test))
 
 visualize_tree_with_pivots(pt, feature_names=feature_names)
+
+show_decision_path(pt,2, X_test,y_test)
