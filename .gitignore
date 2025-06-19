@@ -1,7 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,macos
 PT_IMDB/tensorflow_datasets/
-
+PT_NoVax/Dataset/post_cleaned_it_only_GEMMA3_finale.csv
+PT_NoVax/Dataset
 ### macOS ###
 # General
 .DS_Store
