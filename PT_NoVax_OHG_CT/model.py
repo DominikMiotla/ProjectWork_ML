@@ -6,9 +6,7 @@ from sentence_transformers import SentenceTransformer
 import joblib
 from PivotTree import PivotTree
 import numpy as np
-from imblearn.over_sampling import SMOTE
 from Utilis import report_modello
-from sklearn.preprocessing import MinMaxScaler
 
 def stampa_distribuzione(y, nome):
     distribuzione = y.value_counts(normalize=True) * 100
@@ -50,14 +48,14 @@ def preprocessingDataset(file_path):
         f.write("\n\n " + "_" * 40 + "DATASET PROCESSED" + "_" * 40 + "\n\n")
         #Selezione features
         processed_columns = ['group', 'clean_text', 'classificazione']
-        df_processed = df[processed_columns].copy()
-        
-        df_processed['group_clean_text'] = df_processed['group'].fillna('') + ' ' + df_processed['clean_text'].fillna('')
-        df_processed = df_processed.drop(['group', 'clean_text'], axis=1)
+        df_processed = df[processed_columns]
 
-        df_processed['classificazione'] = df_processed['classificazione'].map({"YES": 1, "NO": 0}).astype(int)
-        columns = [col for col in df_processed.columns if col != 'classificazione'] + ['classificazione']
-        df_encoded = df_processed[columns]
+        # One-hot encoding della colonna 'group'
+        df_encoded = pd.get_dummies(df_processed, columns=['group'])
+
+        df_encoded['classificazione'] = df_encoded['classificazione'].map({"YES": 1, "NO": 0}).astype(int)
+        columns = [col for col in df_encoded.columns if col != 'classificazione'] + ['classificazione']
+        df_encoded = df_encoded[columns]
 
         f.write("- FEATURES DEL DATASET ENCODED: ")
         f.write(", ".join(df_encoded.columns.tolist()) + "\n\n")
@@ -74,7 +72,7 @@ def preprocessingDataset(file_path):
     return df_encoded
 
 def get_embeddings(data_dir,train_texts,test_texts):
-    embeddings_file = os.path.join(data_dir, "embeddings_Group_clean_text.joblib")
+    embeddings_file = os.path.join(data_dir, "embeddings_CT.joblib")
     
     if os.path.exists(embeddings_file):
         print("Caricamento embedding da cache...")
@@ -101,38 +99,41 @@ if __name__ == "__main__":
     file_path = 'Dataset/post_cleaned_it_only_GEMMA3_finale.csv'
 
     df = preprocessingDataset(file_path)
-    print("1:Preprocessing completato!")
+    print("_1: Preprocessing completato!")
     print(df.head())
 
     X = df.drop(columns='classificazione')
     y = df['classificazione']
     
-    X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, stratify=y, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
     #Report numero di istanze per classe
-    stampa_distribuzione(y, "Dataset")
+    stampa_distribuzione(y, "intero dataset")
     stampa_distribuzione(y_train, "training set")
     stampa_distribuzione(y_test, "test set")
-    print("\n")
-    print("Shape di X_train:", X_train.shape)
-    print("Shape di X_test:", X_test.shape)
     print("\n\n")
 
-    print("2: Embeddingd")
+    embeddings = get_embeddings("output", X_train['clean_text'].tolist(), X_test['clean_text'].tolist())
 
-    embeddings = get_embeddings("output", X_train['group_clean_text'].tolist(), X_test['group_clean_text'].tolist())
+    X_train_no_text = X_train.drop(columns='clean_text')
+    X_test_no_text = X_test.drop(columns='clean_text')
 
-    train_embeddings = embeddings['train']
-    test_embeddings = embeddings['test']
+    # Convert embeddings to DataFrames with consistent integer column names
+    n_emb_features = embeddings['train'].shape[1]
+    emb_cols = list(range(n_emb_features))
+    
+    embeddings_train_df = pd.DataFrame(embeddings['train'], columns=emb_cols, index=X_train_no_text.index)
+    embeddings_test_df = pd.DataFrame(embeddings['test'], columns=emb_cols, index=X_test_no_text.index)
 
-    print("Shape di train_embeddings:", train_embeddings.shape)
-    print("Shape di test_embeddings:", test_embeddings.shape)
+    X_train_final = pd.concat([X_train_no_text, embeddings_train_df], axis=1)
+    X_test_final = pd.concat([X_test_no_text, embeddings_test_df], axis=1)
 
+    # Ensure identical column order in train/test
+    X_test_final = X_test_final[X_train_final.columns]
 
-
-    scaler = MinMaxScaler()
-    train_scaled = scaler.fit_transform(train_embeddings)
-    test_scaled = scaler.transform(test_embeddings)
+    #Convert to NumPy arrays to avoid pandas indexing issues
+    X_train_array = X_train_final.values
+    X_test_array = X_test_final.values
 
 
     print("Addestramento PivotTree...")
@@ -154,7 +155,7 @@ if __name__ == "__main__":
                 random_state=42,
                 allow_oblique_splits=True
             )
-            pt.fit(train_scaled, y_train.values)
-            dati_test = (test_scaled, y_test.values)
+            pt.fit(X_train_array, y_train.values)
+            dati_test = (X_test_array, y_test.values)
             nome_file = f'output/Report_MD{max_depth}_MSL{min_samples_leaf}.txt'
             report_modello(pt, dati_test, nome_file=nome_file)

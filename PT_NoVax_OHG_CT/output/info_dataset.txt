@@ -1,0 +1,64 @@
+________________________________________DATASET ORIGINALE________________________________________
+
+- Numero di istanze nel dataset: 19104
+- FEATURES: id, date, group, pre_clean_text, clean_text, classificazione
+- NUMERO VALORI UNICI NELLA FEATURES 'group':  12
+- Valori della features 'group' :#booster, #secondadose, #terzadose, #vaccino, #vaccino_2023, NON FARÒ LA TERZA DOSE, COMBATTENTI NO BOOSTER - NO TERZA DOSE - NO VAC - NO GREEN PASS, Io Non Mi Vaccino Chat, No Vaccini Covid Sui Bambini, Personale Scuola - No Green Pass - No Booster Vax, Singles italiani NON vaccinati, Vittime vaccino Covid in Italia
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 19104 entries, 0 to 19103
+Data columns (total 6 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   id               19104 non-null  int64 
+ 1   date             19104 non-null  object
+ 2   group            19104 non-null  object
+ 3   pre_clean_text   19104 non-null  object
+ 4   clean_text       19104 non-null  object
+ 5   classificazione  19094 non-null  object
+dtypes: int64(1), object(5)
+memory usage: 895.6+ KB
+
+- Classi presenti nel dataset:
+classificazione
+YES     16010
+NO       2727
+Yes       334
+Yes.       15
+No          4
+No.         4
+
+- CLASSI DOPO CORREZIONE:	classificazione
+YES    16359
+NO      2735
+
+ ________________________________________DATASET PROCESSED________________________________________
+
+- FEATURES DEL DATASET ENCODED: clean_text, group_#booster, group_#secondadose, group_#terzadose, group_#vaccino, group_#vaccino_2023, group_COMBATTENTI NO BOOSTER - NO TERZA DOSE - NO VAC - NO GREEN PASS, group_Io Non Mi Vaccino Chat, group_NON FARÒ LA TERZA DOSE, group_No Vaccini Covid Sui Bambini, group_Personale Scuola - No Green Pass - No Booster Vax, group_Singles italiani NON vaccinati, group_Vittime vaccino Covid in Italia, classificazione
+
+<class 'pandas.core.frame.DataFrame'>
+Index: 19094 entries, 0 to 19103
+Data columns (total 14 columns):
+ #   Column                                                                 Non-Null Count  Dtype 
+---  ------                                                                 --------------  ----- 
+ 0   clean_text                                                             19094 non-null  object
+ 1   group_#booster                                                         19094 non-null  bool  
+ 2   group_#secondadose                                                     19094 non-null  bool  
+ 3   group_#terzadose                                                       19094 non-null  bool  
+ 4   group_#vaccino                                                         19094 non-null  bool  
+ 5   group_#vaccino_2023                                                    19094 non-null  bool  
+ 6   group_COMBATTENTI NO BOOSTER - NO TERZA DOSE - NO VAC - NO GREEN PASS  19094 non-null  bool  
+ 7   group_Io Non Mi Vaccino Chat                                           19094 non-null  bool  
+ 8   group_NON FARÒ LA TERZA DOSE                                           19094 non-null  bool  
+ 9   group_No Vaccini Covid Sui Bambini                                     19094 non-null  bool  
+ 10  group_Personale Scuola - No Green Pass - No Booster Vax                19094 non-null  bool  
+ 11  group_Singles italiani NON vaccinati                                   19094 non-null  bool  
+ 12  group_Vittime vaccino Covid in Italia                                  19094 non-null  bool  
+ 13  classificazione                                                        19094 non-null  int64 
+dtypes: bool(12), int64(1), object(1)
+memory usage: 671.3+ KB
+
+- Classi presenti nel dataset:
+classificazione
+1    16359
+0     2735
