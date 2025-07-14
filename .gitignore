@@ -4,6 +4,11 @@ PT_NoVax_G_CT/Dataset
 PT_NoVax_G_CT/output/embeddings_Group_clean_text.joblib
 PT_NoVax_OHG_CT/Dataset/post_cleaned_it_only_GEMMA3_finale.csv
 PT_NoVax_OHG_CT/output/embeddings_CT.joblib
+PT_NoVax_LLM/Dataset/post_cleaned_it_only_GEMMA3_finale.csv
+PT_NoVax_LLM/Dataset/new_Covid.csv
+PT_NoVax_LLM/output/embeddings_NewDataset.joblib
+DT_NoVax/new_Covid.csv
+DT_NoVax/embeddings_NewDataset.joblib
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,macos
 ### macOS ###
