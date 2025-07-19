@@ -57,6 +57,7 @@ print("---Generazione file di valutazione ---")
 report_modello(pt, (X_test, y_test))
 print("\t***File di valutazione del modello creato***\n\n")
 
+
 print("Stampa dell'albero decisioanle basato sui pivot")
 visualize_tree_with_pivots(pt, feature_names=feature_names)
 print("\n\n\n")

@@ -91,7 +91,7 @@ Salva su file la struttura dell’albero e i dettagli sui pivot associati. **Par
     - `pivot_tree`: modello PivotTree.
     - `feature_names`: nomi delle feature (opzionale).- `output_file`: nome del file di output (default "albero_con_pivot.txt").
 
-    - `show_decision_path(pivot_tree, sample_idx, X_test, y_test)` Mostra il percorso decisionale seguito dall’albero per classificare un campione specifico. **Parametri:**
+- `show_decision_path(pivot_tree, sample_idx, X_test, y_test)` Mostra il percorso decisionale seguito dall’albero per classificare un campione specifico. **Parametri:**
     - `pivot_tree`: modello PivotTree addestrato.
     - `sample_idx`: indice del campione da analizzare.
     - `X_test`: dati di test.
