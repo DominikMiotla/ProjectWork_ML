@@ -3,7 +3,6 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-from tabulate import tabulate
 import joblib
 from PivotTree import PivotTree
 from Utilis import print_instances_table
@@ -13,7 +12,7 @@ from Utilis import visualize_tree_with_pivots
 from Utilis import show_decision_path
 
 
-#Caricamento dataset + info sul dataset
+#Caricamento dataset + info
 data = load_iris()
 X = data.data
 y = data.target 
@@ -43,22 +42,24 @@ print_instances_table(X,feature_names,5)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 pt = PivotTree(
-    max_depth=3,
-    min_samples_leaf=2,
+    max_depth=4,
+    min_samples_leaf=3,
     model_type='clf',
     pairwise_metric='euclidean',
-    random_state=42,
-    verbose=True
+    allow_oblique_splits=True
 )
 
 print("\n--- Inizio apprendimento modello ---")
 pt.fit(X_train, y_train)
-joblib.dump(pt, 'pivot_tree_iris.pkl')
-print("\t***Fine apprendimento modello***\n")
+print("\t***Fine apprendimento modello***\n\n")
 
 print("---Generazione file di valutazione ---")
 report_modello(pt, (X_test, y_test))
+print("\t***File di valutazione del modello creato***\n\n")
 
+print("Stampa dell'albero decisioanle basato sui pivot")
 visualize_tree_with_pivots(pt, feature_names=feature_names)
+print("\n\n\n")
 
+print("Percorso decisonale per la classificazione dell'istanza di test[2]")
 show_decision_path(pt,2, X_test,y_test)

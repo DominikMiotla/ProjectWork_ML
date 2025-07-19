@@ -7,9 +7,11 @@
   |--> label: 0 (31, 0.3)
   |-+ if node_id: 2  pivot: 73 <= 1.54:
     |--> label: 1 (32, 0.3)
-    |-+ if node_id: 4  pivot: 67 <= 0.73:
-      |--> label: 1 (3, 0.03)
-      |--> label: 2 (39, 0.37)
+    |-+ if -0.44 node_id: 4  pivot: 4 + 0.58 node_id: 4  medoid: 39 <= -0.38:
+      |-+ if node_id: 7  pivot: 53 <= 0.97:
+        |--> label: 2 (7, 0.07)
+        |--> label: 1 (4, 0.04)
+      |--> label: 2 (31, 0.3)
 
 
 --------------------------------------------------------------------------------
@@ -23,12 +25,12 @@ Nodo 0:
   - Impurità: 0.6644897959183673
 
   Pivot discriminativi:
-    - Pivot 0: Istanza 23
-      Valori: sepal length (cm)=4.600, sepal width (cm)=3.200, petal length (cm)=1.400, petal width (cm)=0.200
-    - Pivot 1: Istanza 47
-      Valori: sepal length (cm)=6.000, sepal width (cm)=2.700, petal length (cm)=5.100, petal width (cm)=1.600
-    - Pivot 2: Istanza 22
-      Valori: sepal length (cm)=7.700, sepal width (cm)=3.800, petal length (cm)=6.700, petal width (cm)=2.200
+    - Pivot 0: Istanza 83
+      Valori: sepal length (cm)=5.100, sepal width (cm)=3.700, petal length (cm)=1.500, petal width (cm)=0.400
+    - Pivot 1: Istanza 64
+      Valori: sepal length (cm)=6.100, sepal width (cm)=2.900, petal length (cm)=4.700, petal width (cm)=1.400
+    - Pivot 2: Istanza 85
+      Valori: sepal length (cm)=6.700, sepal width (cm)=3.300, petal length (cm)=5.700, petal width (cm)=2.500
 
   Medoidi descrittivi:
     - Medoide 0: Istanza 42
@@ -105,8 +107,8 @@ Nodo 4:
   - Impurità: 0.24489795918367352
 
   Pivot discriminativi:
-    - Pivot 0: Istanza 67
-      Valori: sepal length (cm)=7.000, sepal width (cm)=3.200, petal length (cm)=4.700, petal width (cm)=1.400
+    - Pivot 0: Istanza 90
+      Valori: sepal length (cm)=6.900, sepal width (cm)=3.100, petal length (cm)=4.900, petal width (cm)=1.500
     - Pivot 1: Istanza 4
       Valori: sepal length (cm)=7.200, sepal width (cm)=3.600, petal length (cm)=6.100, petal width (cm)=2.500
 
@@ -117,32 +119,67 @@ Nodo 4:
       Valori: sepal length (cm)=6.500, sepal width (cm)=3.000, petal length (cm)=5.500, petal width (cm)=1.800
 
   Pivot usati per lo split:
-    - node_id: 4  pivot: 67
+    - ['node_id: 4  pivot: 4', 'node_id: 4  medoid: 39']
 
 ----------------------------------------
 
 Nodo 7:
-  - Tipo: Foglia
+  - Tipo: Nodo interno
   - Classe: 1
-  - Campioni: 3
-  - Impurità: 0.0
+  - Campioni: None
+  - Impurità: 0.49586776859504134
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 47
+      Valori: sepal length (cm)=6.000, sepal width (cm)=2.700, petal length (cm)=5.100, petal width (cm)=1.600
+    - Pivot 1: Istanza 53
+      Valori: sepal length (cm)=6.000, sepal width (cm)=2.200, petal length (cm)=5.000, petal width (cm)=1.500
 
   Medoidi descrittivi:
-    - Medoide 0: Istanza 90
-      Valori: sepal length (cm)=6.900, sepal width (cm)=3.100, petal length (cm)=4.900, petal width (cm)=1.500
+    - Medoide 0: Istanza 39
+      Valori: sepal length (cm)=6.700, sepal width (cm)=3.000, petal length (cm)=5.000, petal width (cm)=1.700
+    - Medoide 1: Istanza 66
+      Valori: sepal length (cm)=6.200, sepal width (cm)=2.800, petal length (cm)=4.800, petal width (cm)=1.800
+
+  Pivot usati per lo split:
+    - node_id: 7  pivot: 53
 
 ----------------------------------------
 
 Nodo 8:
   - Tipo: Foglia
   - Classe: 2
-  - Campioni: 39
-  - Impurità: 0.14201183431952658
+  - Campioni: 31
+  - Impurità: 0.0
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 61
+      Valori: sepal length (cm)=6.800, sepal width (cm)=3.000, petal length (cm)=5.500, petal width (cm)=2.100
+
+----------------------------------------
+
+Nodo 9:
+  - Tipo: Foglia
+  - Classe: 2
+  - Campioni: 7
+  - Impurità: 0.40816326530612246
 
   Medoidi descrittivi:
     - Medoide 0: Istanza 47
       Valori: sepal length (cm)=6.000, sepal width (cm)=2.700, petal length (cm)=5.100, petal width (cm)=1.600
-    - Medoide 1: Istanza 94
-      Valori: sepal length (cm)=6.500, sepal width (cm)=3.000, petal length (cm)=5.500, petal width (cm)=1.800
+    - Medoide 1: Istanza 66
+      Valori: sepal length (cm)=6.200, sepal width (cm)=2.800, petal length (cm)=4.800, petal width (cm)=1.800
+
+----------------------------------------
+
+Nodo 10:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 4
+  - Impurità: 0.0
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 90
+      Valori: sepal length (cm)=6.900, sepal width (cm)=3.100, petal length (cm)=4.900, petal width (cm)=1.500
 
 ----------------------------------------
