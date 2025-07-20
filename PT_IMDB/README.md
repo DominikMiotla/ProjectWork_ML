@@ -80,3 +80,17 @@ Parametri del modello:
 ## Visualizzazione
 - Struttura dell’albero salvata su `Output/albero_con_pivot.txt`
 - Percorso decisionale per un'istanza di test (indice 2) mostrato a terminale
+
+# Risultati
+
+
+## Considerazioni finali
+Il modello classifica correttamente circa il 78% delle recensioni testuali.
+
+Le metriche tra le due classi sono molto bilanciate, a indicare che il modello non favorisce una classe rispetto all’altra.
+
+F1-score medio = 0.78, buon compromesso tra precisione e richiamo.
+
+Ottimo risultato considerando che:
+- non è una rete neurale ma un albero decisionale basato su distanze nei vettori SBERT
+- la struttura dell’albero può essere interpretata e visualizzata, cosa rara nei modelli NLP
