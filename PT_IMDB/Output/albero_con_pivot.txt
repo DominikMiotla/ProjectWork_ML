@@ -1,0 +1,833 @@
+
+================================================================================
+========================= ALBERO DECISIONALE CON PIVOT =========================
+================================================================================
+
+|-+ if node_id: 0  pivot: 14778 <= 1.18:
+  |-+ if node_id: 1  pivot: 5001 <= 1.26:
+    |-+ if node_id: 3  pivot: 19657 <= 1.14:
+      |-+ if node_id: 7  pivot: 7923 <= 1.08:
+        |-+ if node_id: 15  pivot: 9134 <= 0.76:
+          |--> label: 1 (3, 0.0)
+          |--> label: 0 (3549, 0.14)
+        |-+ if node_id: 16  pivot: 7999 <= 0.84:
+          |--> label: 1 (27, 0.0)
+          |--> label: 0 (1444, 0.06)
+      |-+ if node_id: 8  pivot: 5274 <= 1.06:
+        |-+ if node_id: 17  pivot: 21407 <= 1.01:
+          |--> label: 0 (340, 0.01)
+          |--> label: 1 (162, 0.01)
+        |--> label: 0 (2204, 0.09)
+    |-+ if node_id: 4  pivot: 8942 <= 0.98:
+      |-+ if node_id: 9  pivot: 22321 <= 0.89:
+        |-+ if node_id: 19  pivot: 4454 <= 0.76:
+          |--> label: 1 (12, 0.0)
+          |--> label: 0 (100, 0.0)
+        |--> label: 1 (843, 0.03)
+      |-+ if node_id: 10  pivot: 19798 <= 1.14:
+        |-+ if node_id: 21  pivot: 5783 <= 1.0:
+          |--> label: 1 (170, 0.01)
+          |--> label: 0 (1422, 0.06)
+        |-+ if node_id: 22  pivot: 23811 <= 1.14:
+          |--> label: 1 (741, 0.03)
+          |--> label: 0 (541, 0.02)
+  |-+ if node_id: 2  pivot: 8992 <= 1.2:
+    |-+ if node_id: 5  pivot: 7442 <= 1.1:
+      |-+ if 0.64 node_id: 11  pivot: 20307 + 0.38 node_id: 11  medoid: 23841 <= 1.05:
+        |--> label: 1 (653, 0.03)
+        |-+ if node_id: 24  pivot: 8375 <= 1.12:
+          |--> label: 0 (225, 0.01)
+          |--> label: 1 (64, 0.0)
+      |-+ if node_id: 12  pivot: 6397 <= 1.16:
+        |--> label: 1 (640, 0.03)
+        |-+ if node_id: 26  pivot: 2773 <= 0.83:
+          |--> label: 0 (6, 0.0)
+          |--> label: 1 (3270, 0.13)
+    |-+ if node_id: 6  pivot: 15451 <= 1.32:
+      |-+ if node_id: 13  pivot: 22565 <= 1.3:
+        |-+ if node_id: 27  pivot: 20565 <= 1.25:
+          |--> label: 0 (1569, 0.06)
+          |--> label: 1 (723, 0.03)
+        |-+ if node_id: 28  pivot: 18256 <= 1.28:
+          |--> label: 0 (707, 0.03)
+          |--> label: 1 (1085, 0.04)
+      |--> label: 1 (4500, 0.18)
+
+
+--------------------------------------------------------------------------------
+--------------------------- DETTAGLI PIVOT PER NODO ----------------------------
+--------------------------------------------------------------------------------
+
+Nodo 0:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.5
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 14778
+    - Pivot 1: Istanza 24009
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 10498
+    - Medoide 1: Istanza 2554
+
+  Pivot usati per lo split:
+    - node_id: 0  pivot: 14778
+
+----------------------------------------
+
+Nodo 1:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.3646271813552665
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 5001
+    - Pivot 1: Istanza 24009
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3027
+    - Medoide 1: Istanza 4398
+
+  Pivot usati per lo split:
+    - node_id: 1  pivot: 5001
+
+----------------------------------------
+
+Nodo 2:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.3999149824334146
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 13954
+    - Pivot 1: Istanza 8992
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4114
+    - Medoide 1: Istanza 9485
+
+  Pivot usati per lo split:
+    - node_id: 2  pivot: 8992
+
+----------------------------------------
+
+Nodo 3:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.24468667815884515
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 19657
+    - Pivot 1: Istanza 24009
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3027
+    - Medoide 1: Istanza 4398
+
+  Pivot usati per lo split:
+    - node_id: 3  pivot: 19657
+
+----------------------------------------
+
+Nodo 4:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.4917782880726127
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 13113
+    - Pivot 1: Istanza 8942
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 24166
+    - Medoide 1: Istanza 2554
+
+  Pivot usati per lo split:
+    - node_id: 4  pivot: 8942
+
+----------------------------------------
+
+Nodo 5:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.21495486217807636
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 7442
+    - Pivot 1: Istanza 23338
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 8460
+    - Medoide 1: Istanza 11361
+
+  Pivot usati per lo split:
+    - node_id: 5  pivot: 7442
+
+----------------------------------------
+
+Nodo 6:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.4626537842354358
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 15451
+    - Pivot 1: Istanza 9056
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 19999
+    - Medoide 1: Istanza 24654
+
+  Pivot usati per lo split:
+    - node_id: 6  pivot: 15451
+
+----------------------------------------
+
+Nodo 7:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.140195395823845
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 7923
+    - Pivot 1: Istanza 19777
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3027
+    - Medoide 1: Istanza 24707
+
+  Pivot usati per lo split:
+    - node_id: 7  pivot: 7923
+
+----------------------------------------
+
+Nodo 8:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.3912490324258211
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 17053
+    - Pivot 1: Istanza 5274
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3090
+    - Medoide 1: Istanza 11253
+
+  Pivot usati per lo split:
+    - node_id: 8  pivot: 5274
+
+----------------------------------------
+
+Nodo 9:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.4332249664208766
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 22321
+    - Pivot 1: Istanza 5389
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 16009
+    - Medoide 1: Istanza 2554
+
+  Pivot usati per lo split:
+    - node_id: 9  pivot: 22321
+
+----------------------------------------
+
+Nodo 10:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.45728749438853566
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 19798
+    - Pivot 1: Istanza 23043
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4047
+    - Medoide 1: Istanza 11099
+
+  Pivot usati per lo split:
+    - node_id: 10  pivot: 19798
+
+----------------------------------------
+
+Nodo 11:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.4034240739989452
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 9525
+    - Pivot 1: Istanza 20307
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 8460
+    - Medoide 1: Istanza 23841
+
+  Pivot usati per lo split:
+    - ['node_id: 11  pivot: 20307', 'node_id: 11  medoid: 23841']
+
+----------------------------------------
+
+Nodo 12:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.15476109118871162
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 6397
+    - Pivot 1: Istanza 13493
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4078
+    - Medoide 1: Istanza 5191
+
+  Pivot usati per lo split:
+    - node_id: 12  pivot: 6397
+
+----------------------------------------
+
+Nodo 13:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.4996757610262835
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 22565
+    - Pivot 1: Istanza 5169
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 19999
+    - Medoide 1: Istanza 22000
+
+  Pivot usati per lo split:
+    - node_id: 13  pivot: 22565
+
+----------------------------------------
+
+Nodo 14:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 4500
+  - Impurità: 0.35179012345679017
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 12644
+    - Pivot 1: Istanza 16043
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 12584
+    - Medoide 1: Istanza 24654
+
+----------------------------------------
+
+Nodo 15:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.08398009495982472
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 22407
+    - Pivot 1: Istanza 9134
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3027
+    - Medoide 1: Istanza 24707
+
+  Pivot usati per lo split:
+    - node_id: 15  pivot: 9134
+
+----------------------------------------
+
+Nodo 16:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.2591225510562005
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 15747
+    - Pivot 1: Istanza 7999
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 5214
+    - Medoide 1: Istanza 24007
+
+  Pivot usati per lo split:
+    - node_id: 16  pivot: 7999
+
+----------------------------------------
+
+Nodo 17:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.5
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 21407
+    - Pivot 1: Istanza 9662
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3468
+    - Medoide 1: Istanza 11253
+
+  Pivot usati per lo split:
+    - node_id: 17  pivot: 21407
+
+----------------------------------------
+
+Nodo 18:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 2204
+  - Impurità: 0.3360673219126419
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 6314
+    - Pivot 1: Istanza 23527
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3090
+    - Medoide 1: Istanza 3469
+
+----------------------------------------
+
+Nodo 19:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.3565051020408163
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 2425
+    - Pivot 1: Istanza 4454
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 16009
+    - Medoide 1: Istanza 2554
+
+  Pivot usati per lo split:
+    - node_id: 19  pivot: 4454
+
+----------------------------------------
+
+Nodo 20:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 843
+  - Impurità: 0.38230406290587904
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 11927
+    - Pivot 1: Istanza 9559
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 10053
+    - Medoide 1: Istanza 16869
+
+----------------------------------------
+
+Nodo 21:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.3812024948864927
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 9845
+    - Pivot 1: Istanza 5783
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4047
+    - Medoide 1: Istanza 9982
+
+  Pivot usati per lo split:
+    - node_id: 21  pivot: 5783
+
+----------------------------------------
+
+Nodo 22:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.49875389711376283
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 19619
+    - Pivot 1: Istanza 23811
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 24447
+    - Medoide 1: Istanza 3879
+
+  Pivot usati per lo split:
+    - node_id: 22  pivot: 23811
+
+----------------------------------------
+
+Nodo 23:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 653
+  - Impurità: 0.29019087308194713
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 6169
+    - Pivot 1: Istanza 4597
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 8460
+    - Medoide 1: Istanza 23841
+
+----------------------------------------
+
+Nodo 24:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.4995150920127872
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 8375
+    - Pivot 1: Istanza 5018
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 5051
+    - Medoide 1: Istanza 10394
+
+  Pivot usati per lo split:
+    - node_id: 24  pivot: 8375
+
+----------------------------------------
+
+Nodo 25:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 640
+  - Impurità: 0.3046875
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 3266
+    - Pivot 1: Istanza 11029
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 6065
+    - Medoide 1: Istanza 17463
+
+----------------------------------------
+
+Nodo 26:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.12051889570204588
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 2773
+    - Pivot 1: Istanza 19617
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4078
+    - Medoide 1: Istanza 11361
+
+  Pivot usati per lo split:
+    - node_id: 26  pivot: 2773
+
+----------------------------------------
+
+Nodo 27:
+  - Tipo: Nodo interno
+  - Classe: 0
+  - Campioni: None
+  - Impurità: 0.4736662768138057
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 20565
+    - Pivot 1: Istanza 22885
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4114
+    - Medoide 1: Istanza 22000
+
+  Pivot usati per lo split:
+    - node_id: 27  pivot: 20565
+
+----------------------------------------
+
+Nodo 28:
+  - Tipo: Nodo interno
+  - Classe: 1
+  - Campioni: None
+  - Impurità: 0.47227197763871176
+
+  Pivot discriminativi:
+    - Pivot 0: Istanza 18256
+    - Pivot 1: Istanza 12805
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 11295
+    - Medoide 1: Istanza 17142
+
+  Pivot usati per lo split:
+    - node_id: 28  pivot: 18256
+
+----------------------------------------
+
+Nodo 31:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 3
+  - Impurità: 0.0
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 9134
+
+----------------------------------------
+
+Nodo 32:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 3549
+  - Impurità: 0.08250439982022006
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3027
+    - Medoide 1: Istanza 24707
+
+----------------------------------------
+
+Nodo 33:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 27
+  - Impurità: 0.345679012345679
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 5785
+    - Medoide 1: Istanza 14544
+
+----------------------------------------
+
+Nodo 34:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 1444
+  - Impurità: 0.24263165568097234
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 5214
+    - Medoide 1: Istanza 24007
+
+----------------------------------------
+
+Nodo 35:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 340
+  - Impurità: 0.47368512110726646
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 3468
+    - Medoide 1: Istanza 11253
+
+----------------------------------------
+
+Nodo 36:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 162
+  - Impurità: 0.3840877914951989
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 18487
+    - Medoide 1: Istanza 11335
+
+----------------------------------------
+
+Nodo 39:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 12
+  - Impurità: 0.1527777777777778
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 5179
+    - Medoide 1: Istanza 2554
+
+----------------------------------------
+
+Nodo 40:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 100
+  - Impurità: 0.255
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 16009
+    - Medoide 1: Istanza 16339
+
+----------------------------------------
+
+Nodo 43:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 170
+  - Impurità: 0.4997231833910034
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4047
+    - Medoide 1: Istanza 2317
+
+----------------------------------------
+
+Nodo 44:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 1422
+  - Impurità: 0.34956114582776976
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 14897
+    - Medoide 1: Istanza 19877
+
+----------------------------------------
+
+Nodo 45:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 741
+  - Impurità: 0.4862233440967726
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 18582
+    - Medoide 1: Istanza 9959
+
+----------------------------------------
+
+Nodo 46:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 541
+  - Impurità: 0.44026089838424765
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 20612
+    - Medoide 1: Istanza 3610
+
+----------------------------------------
+
+Nodo 49:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 225
+  - Impurità: 0.48
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 5051
+    - Medoide 1: Istanza 6246
+
+----------------------------------------
+
+Nodo 50:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 64
+  - Impurità: 0.341796875
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 19593
+    - Medoide 1: Istanza 10394
+
+----------------------------------------
+
+Nodo 53:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 6
+  - Impurità: 0.0
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4717
+
+----------------------------------------
+
+Nodo 54:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 3270
+  - Impurità: 0.11752190705982479
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4078
+    - Medoide 1: Istanza 11361
+
+----------------------------------------
+
+Nodo 55:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 1569
+  - Impurità: 0.4266376792873069
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4114
+    - Medoide 1: Istanza 4644
+
+----------------------------------------
+
+Nodo 56:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 723
+  - Impurità: 0.4946195829961605
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 12341
+    - Medoide 1: Istanza 9265
+
+----------------------------------------
+
+Nodo 57:
+  - Tipo: Foglia
+  - Classe: 0
+  - Campioni: 707
+  - Impurità: 0.49999899969790873
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 4268
+    - Medoide 1: Istanza 2345
+
+----------------------------------------
+
+Nodo 58:
+  - Tipo: Foglia
+  - Classe: 1
+  - Campioni: 1085
+  - Impurità: 0.42400390749431927
+
+  Medoidi descrittivi:
+    - Medoide 0: Istanza 11295
+    - Medoide 1: Istanza 17142
+
+----------------------------------------

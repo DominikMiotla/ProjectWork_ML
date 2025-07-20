@@ -1,0 +1,34 @@
+Caricamento dataset da cache...
+Caricamento embedding da cache...
+Addestramento PivotTree...
+Test Accuracy: 0.7833
+---Generazione file di valutazione ---
+	***Risultati salvati in 'Output/valutazione_modello.txt' (formato .txt)
+
+
+	***File di valutazione del modello creato***
+
+
+Stampa dell'albero decisioanle basato sui pivot
+[(True, ['node_id: 0  pivot: 14778'], [1.0], np.float64(1.1753827333450317), False, 0), (True, ['node_id: 1  pivot: 5001'], [1.0], np.float64(1.2564672231674194), False, 1), (True, ['node_id: 3  pivot: 19657'], [1.0], np.float64(1.141167938709259), False, 2), (True, ['node_id: 7  pivot: 7923'], [1.0], np.float64(1.0767501592636108), False, 3), (True, ['node_id: 15  pivot: 9134'], [1.0], np.float64(0.7624128460884094), False, 4), (False, np.int64(1), 3, 0.00012, 31, 5), (False, np.int64(0), 3549, 0.14196, 32, 5), (True, ['node_id: 16  pivot: 7999'], [1.0], np.float64(0.8408905863761902), False, 4), (False, np.int64(1), 27, 0.00108, 33, 5), (False, np.int64(0), 1444, 0.05776, 34, 5), (True, ['node_id: 8  pivot: 5274'], [1.0], np.float64(1.0587511658668518), False, 3), (True, ['node_id: 17  pivot: 21407'], [1.0], np.float64(1.0149337649345398), False, 4), (False, np.int64(0), 340, 0.0136, 35, 5), (False, np.int64(1), 162, 0.00648, 36, 5), (False, np.int64(0), 2204, 0.08816, 18, 4), (True, ['node_id: 4  pivot: 8942'], [1.0], np.float64(0.9756537079811096), False, 2), (True, ['node_id: 9  pivot: 22321'], [1.0], np.float64(0.887061208486557), False, 3), (True, ['node_id: 19  pivot: 4454'], [1.0], np.float64(0.7558065950870514), False, 4), (False, np.int64(1), 12, 0.00048, 39, 5), (False, np.int64(0), 100, 0.004, 40, 5), (False, np.int64(1), 843, 0.03372, 20, 4), (True, ['node_id: 10  pivot: 19798'], [1.0], np.float64(1.1444624066352844), False, 3), (True, ['node_id: 21  pivot: 5783'], [1.0], np.float64(0.9982499480247498), False, 4), (False, np.int64(1), 170, 0.0068, 43, 5), (False, np.int64(0), 1422, 0.05688, 44, 5), (True, ['node_id: 22  pivot: 23811'], [1.0], np.float64(1.1406394243240356), False, 4), (False, np.int64(1), 741, 0.02964, 45, 5), (False, np.int64(0), 541, 0.02164, 46, 5), (True, ['node_id: 2  pivot: 8992'], [1.0], np.float64(1.200549066066742), False, 1), (True, ['node_id: 5  pivot: 7442'], [1.0], np.float64(1.0985862016677856), False, 2), (True, ['node_id: 11  pivot: 20307', 'node_id: 11  medoid: 23841'], [0.6422282492403409, 0.38030871231633445], np.float64(1.0467749238014221), False, 3), (False, np.int64(1), 653, 0.02612, 23, 4), (True, ['node_id: 24  pivot: 8375'], [1.0], np.float64(1.121055543422699), False, 4), (False, np.int64(0), 225, 0.009, 49, 5), (False, np.int64(1), 64, 0.00256, 50, 5), (True, ['node_id: 12  pivot: 6397'], [1.0], np.float64(1.1590300798416138), False, 3), (False, np.int64(1), 640, 0.0256, 25, 4), (True, ['node_id: 26  pivot: 2773'], [1.0], np.float64(0.829402893781662), False, 4), (False, np.int64(0), 6, 0.00024, 53, 5), (False, np.int64(1), 3270, 0.1308, 54, 5), (True, ['node_id: 6  pivot: 15451'], [1.0], np.float64(1.3230475187301636), False, 2), (True, ['node_id: 13  pivot: 22565'], [1.0], np.float64(1.2974481582641602), False, 3), (True, ['node_id: 27  pivot: 20565'], [1.0], np.float64(1.2510785460472107), False, 4), (False, np.int64(0), 1569, 0.06276, 55, 5), (False, np.int64(1), 723, 0.02892, 56, 5), (True, ['node_id: 28  pivot: 18256'], [1.0], np.float64(1.2770851850509644), False, 4), (False, np.int64(0), 707, 0.02828, 57, 5), (False, np.int64(1), 1085, 0.0434, 58, 5), (False, np.int64(1), 4500, 0.18, 14, 3)]
+
+
+
+
+Percorso decisonale per la classificazione dell'istanza di test[2]
+
+Sample: [ 6.48798645e-02  1.45633891e-02  9.93086770e-03 -4.14923616e-02
+  2.17038225e-02  2.72816066e-02 -3.73463035e-02 -2.20237998e-03
+ -2.78775562e-02 -2.14462075e-02 -6.54903278e-02  5.24746068e-02
+  2.07027402e-02  2.87238578e-03  2.00519934e-02 -5.57847470e-02
+ -1.36803677e-02 -2.72000977e-03 -4.20783795e-02 -2.80303210e-02
+  2.08614878e-02 -5.50980214e-03  8.94589070e-03  1.96973234e-02
+ -2.76054256e-02 -1.20791132e-02  5.79183251e-02  1.77782271e-02
+  4.74631190e-02 -9.62679088e-02 -5.53273503e-03 -4.58672233e-02
+  1.67804714e-02 -7.70664494e-03  2.89716331e-06 -3.69702093e-02
+  5.07282764e-02  7.26283109e-03  2.96203606e-02  2.90084220e-02
+ -2.98208874e-02  4.75856028e-02 -1.86949968e-02 -1.87235996e-02
+  1.22020245e-02 -5.78054367e-03  1.30811455e-02  5.09267002e-02
+  1.30696297e-02 -2.29095165e-02]...
+Predicted: 0, Actual: 0
+Decision path: ['node_id: 0  pivot: 14778'] <= 1.18 & ['node_id: 1  pivot: 5001'] > 1.26 & ['node_id: 4  pivot: 8942'] > 0.98 & ['node_id: 10  pivot: 19798'] > 1.14 & ['node_id: 22  pivot: 23811'] > 1.14 --> 0

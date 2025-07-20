@@ -84,6 +84,22 @@ def report_modello(modello, dati_test, target_names=None, nome_file='valutazione
 
 
 def get_pivots_and_medoids(pivot_tree):
+    """
+    Estrae le informazioni sui pivot discriminativi e descrittivi da ciascun nodo di un albero di pivot.
+
+    Parametri:
+    - pivot_tree
+
+    Ritorna:
+    - pivots_info: dizionario in cui ogni chiave è l'ID di un nodo dell'albero,
+      e il valore associato è un altro dizionario con le seguenti informazioni:
+        - 'discriminative_pivots': include i dati X, le etichette y, gli indici e i nomi dei pivot discriminativi.
+        - 'descriptive_pivots': include i dati X, le etichette y, gli indici e i nomi dei pivot descrittivi.
+
+    Uso:
+    Questa funzione è utile per accedere rapidamente ai pivot e ai medoid associati a ciascun nodo di una struttura ad albero,
+    facilitando operazioni di ispezione, visualizzazione o analisi delle strategie di suddivisione dell'albero.
+    """
     pivots_info = {}
     for node_id, node in pivot_tree._node_dict.items():
         pivots_info[node_id] = {
@@ -104,15 +120,16 @@ def get_pivots_and_medoids(pivot_tree):
 
 def visualize_tree_with_pivots(pivot_tree, feature_names=None, output_file="albero_con_pivot.txt"):
     """
-    Visualizza l'albero decisionale completo con informazioni sui pivot e medoidi,
-    scrivendo il tutto su un file di testo.
-    
+    Estrae i pivot discriminativi e descrittivi da ciascun nodo del pivot tree.
+
     Parametri:
-    - pivot_tree: modello PivotTree già addestrato
-    - feature_names: lista dei nomi delle feature (opzionale)
-    - output_file: percorso del file di testo dove scrivere l'output
-    """
-    
+    - pivot_tree: struttura ad albero contenente nodi con informazioni sui pivot.
+
+    Ritorna:
+    - Dizionario che mappa ogni node_id a:
+        - 'discriminative_pivots': dati, etichette, indici e nomi dei pivot discriminativi.
+        - 'descriptive_pivots': dati, etichette, indici e nomi dei pivot descrittivi.
+    """ 
     tree_structure = pivot_tree.print_tree()
     pivots_data = get_pivots_and_medoids(pivot_tree)
     

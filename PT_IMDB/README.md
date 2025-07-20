@@ -1,108 +1,82 @@
-# PivotTree per l'Analisi del Sentimento su Recensioni IMDB
-
-Questo progetto implementa una variante degli alberi decisionali chiamata **PivotTree**, dataset di recensioni cinematografiche IMDB. Il modello PivotTree utilizza **pivot discriminanti** e **medoidi descrittivi** per creare confini decisionali interpretabili in spazi di embedding ad alta dimensione.
-
----
+# PivotTree Sentiment Classification su IMDB
+Questo progetto utilizza il dataset IMDB Reviews per eseguire una classificazione di sentimenti *(positivo/negativo)* tramite il modello PivotTree. Le recensioni vengono convertite in embedding vettoriali tramite SBERT, e successivamente classificate con PivotTree.
 
 ## Caratteristiche Principali
+- Caricamento e caching automatico del dataset IMDB
+- Generazione e caching degli embedding SBERT (all-mpnet-base-v2)
+- Addestramento di un albero decisionale custom (PivotTree)
+- Visualizzazione dell’albero con i pivot
+- Tracciamento del path decisionale per un esempio specifico
+- Generazione di un report di valutazione su test set
 
-- Albero decisionale basato su pivot che opera nello spazio degli embedding  
-- Percorsi decisionali interpretabili con visualizzazione dei pivot  
-- Tuning automatico degli iperparametri per prestazioni ottimali  
-- Meccanismo di caching per embedding e dataset  
-- Report di valutazione completi con visualizzazioni  
+# Struttura del progetto
+PT_IMDB/
+- models_imdb.py: Fit di un ensable di PivotTree
+- model_imdb.py: Fit di un PivotTree
+- tensorflow_datasets: Directory per cache dei dati e embedding
+   -  imdb_dataset.joblib
+   - embeddings.joblib
+- `RuleTree.py` Implementazione di base di un **albero decisionale**.
+  
+- `PivotTree.py` Costruisce un **albero decisionale interpretabile** utilizzando istanze pivot *(esempi di riferimento)*.
+  
+- `Utilis.py` Fornisce **funzioni di supporto** sviluppate per analizzare, visualizzare e interpretare i modelli PivotTree.
 
+# Script models_imdb.py
+Questo script esegue una Grid Search per addestrare e valutare il modello PivotTree sul dataset di recensioni IMDb, utilizzando Sentence Embeddings generati dal modello all-mpnet-base-v2 di SentenceTransformers.
+ 
+## Sequenza delle operazioni
+- Scarica il dataset IMDb (se non è già salvato in cache)
+- Estrae i testi e le etichette *(positivo/negativo)*.
+- Genera gli embeddings dei testi con SBERT (all-mpnet-base-v2).
+- Esegue una Grid Search con combinazioni di iperparametri per addestrare un classificatore PivotTree.
+- Valuta l'accuracy su ogni combinazione.
+- Salva un file di report pivot_tree_report.txt con i parametri e l'accuracy per ciascun modello.
 
-## Utilizzo
-
-### Allenamento e Valutazione del Modello
-
-```bash
-python models_imdb.py
-```
-
-Questo script esegue:
-
-- Download e preprocessing del dataset IMDB  
-- Generazione degli embedding delle frasi usando SBERT  
-- Tuning degli iperparametri  
-- Addestramento del miglior modello PivotTree  
-- Generazione dei report di valutazione  
-
-### Visualizzazione dell'Albero Decisionale
+### Parametri della Grid Search
+Il dizionario PARAM_GRID contiene i seguenti iperparametri:
 
 ```python
-from Utilis import visualize_tree_with_pivots
-
-# Dopo l'addestramento del modello
-visualize_tree_with_pivots(pt, output_file="tree_visualization.txt")
+PARAM_GRID = {
+    "max_depth": [3, 4, 5, 6],
+    "min_samples_leaf": [2, 3, 5, 8],
+    "allow_oblique_splits": [False, True]
+}
 ```
+Spiegazione:
+- max_depth: profondità massima dell’albero.
+- min_samples_leaf: numero minimo di campioni in una foglia.
+- allow_oblique_splits: consente split obliqui (True/False).
 
-### Analisi dei Percorsi Decisionali
+Questi parametri vengono combinati tramite itertools.product, producendo 32 combinazioni in totale (4 x 4 x 2)
+
+### File di output: pivot_tree_report.txt
+Per ogni combinazione di parametri, il file di report conterrà una riga come questa:
 
 ```python
-from Utilis import show_decision_path
-
-# Mostra il percorso decisionale per un campione specifico del test set
-show_decision_path(pt, sample_idx=2, X_test=test_embeddings, y_test=test_labels)
+[AAAA-MM-DD HH:MM:SS] Params: max_depth-4_min_samples_leaf-2_allow_oblique_splits-True | Accuracy: Val
 ```
+Ogni riga rappresenta:
+- Timestamp dell’esperimento
+- Parametri usati
+- Accuracy ottenuta sul test set
 
----
+# Script model_imdb.py
+Questo script costruisce un classificatore di sentiment basato su PivotTree applicato al dataset IMDB Reviews. Il flusso include il download e preprocessing del dataset, generazione degli embedding tramite Sentence-BERT, addestramento del modello, e valutazione delle performance.
 
-## Struttura del Progetto
 
-```
-pivottree-imdb-sentiment/
-├── models_imdb.py           # Script principale per training e valutazione
-├── PivotTree.py             # Implementazione di PivotTree
-├── RuleTree.py              # Implementazione base RuleTree
-├── Utilis.py                # Funzioni di utilità per la visualizzazione
-├── tensorflow_datasets/     # Directory di cache per i dataset
-├── modelli_cache/           # Directory di cache per i modelli
-├── valutazione_modello.txt  # Report di valutazione del modello
-├── pivot_tree_report.txt    # Risultati del tuning degli iperparametri
-├── albero_con_pivot.txt     # Output della visualizzazione dell'albero
-└── README.md
-```
 
----
+Parametri del modello:
+- `max_depth=6`	Profondità massima dell'albero decisionale
+- `min_samples_leaf=3`	Minimo numero di campioni in una foglia
+- `model_type='clf'`	Tipo di modello (classificatore)
+- `pairwise_metric='euclidean'`	Metodologia per calcolare la distanza tra punti (metrica euclidea)
+- `allow_oblique_splits=True` Consente split obliqui (basati su più pivot)
 
-## Risultati
+## Valutazione
+- Accuracy calcolata su dati di test
+- Report dettagliato salvato su `Output/valutazione_modello.txt`
 
-Il miglior modello raggiunge un'accuratezza del **78.11%** sul test set IMDB:
-
-```
-Accuratezza: 0.7811
-
-Matrice di Confusione:
-              0       1
-          0   9319    3181
-          1   2291   10209
-
-Report di Classificazione:
-              precision  recall  f1-score   support
-           0       0.80    0.75      0.77     12500
-           1       0.76    0.82      0.79     12500
-```
-
----
-
-## Concetti Chiave
-
-### Componenti di PivotTree
-
-- **Pivot Discriminanti**: Istanti che separano meglio le classi  
-- **Medoidi Descrittivi**: Rappresentanti centrali di ogni classe  
-- **Split Obliqui**: Confini decisionali che usano combinazioni di più feature  
-
-### Workflow del Modello
-
-1. Generazione degli embedding delle frasi con SBERT  
-2. Calcolo della matrice di distanza tra gli esempi  
-3. Per ogni nodo:
-   - Identificazione dei medoidi descrittivi  
-   - Selezione dei pivot discriminanti  
-   - Creazione di confini decisionali usando i pivot  
-   - Costruzione ricorsiva dell’albero  
-
----
+## Visualizzazione
+- Struttura dell’albero salvata su `Output/albero_con_pivot.txt`
+- Percorso decisionale per un'istanza di test (indice 2) mostrato a terminale

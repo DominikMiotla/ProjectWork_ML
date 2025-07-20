@@ -19,7 +19,7 @@ os.makedirs(TFDS_DIR, exist_ok=True)
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 
-#Caricamento del dataset con cache
+
 def load_dataset():
     if os.path.exists(DATASET_CACHE):
         print("Caricamento dataset da cache...")
@@ -57,7 +57,6 @@ def load_dataset():
     return data
 
 
-#Generazione embedding SBERT con cache
 def get_embeddings(train_texts, test_texts):
     if os.path.exists(EMBEDDINGS_CACHE):
         print("Caricamento embedding da cache...")
@@ -78,28 +77,19 @@ def get_embeddings(train_texts, test_texts):
     joblib.dump(embeddings, EMBEDDINGS_CACHE)
     return embeddings
 
-
-#Addestramento e valutazione PivotTree
 def train_and_evaluate_pivot_tree(params, idx, train_embeddings, train_labels, test_embeddings, test_labels):
     param_str = "_".join([f"{name}-{val}" for name, val in zip(PARAM_NAMES, params)])
-    tree_file = os.path.join(MODEL_DIR, f"pivot_tree_{param_str}.pkl")
+    print(f"[{idx+1}/{len(PARAM_COMBINATIONS)}] Addestramento modello: {param_str}")
 
-    if os.path.exists(tree_file):
-        print(f"[{idx+1}/{len(PARAM_COMBINATIONS)}] Caricamento da cache: {param_str}")
-        pt = joblib.load(tree_file)
-    else:
-        print(f"[{idx+1}/{len(PARAM_COMBINATIONS)}] Addestramento modello: {param_str}")
-        pt = PivotTree(
-            max_depth=params[0],
-            min_samples_leaf=params[1],
-            allow_oblique_splits=params[2],
-            model_type='clf',
-            pairwise_metric='euclidean',
-            random_state=42,
-            verbose=False
-        )
-        pt.fit(train_embeddings, train_labels)
-        joblib.dump(pt, tree_file)
+    pt = PivotTree(
+        max_depth=params[0],
+        min_samples_leaf=params[1],
+        allow_oblique_splits=params[2],
+        model_type='clf',
+        pairwise_metric='euclidean',
+        verbose=False
+    )
+    pt.fit(train_embeddings, train_labels)
 
     predictions = pt.predict(test_embeddings)
     accuracy = np.mean(predictions == test_labels)
@@ -110,10 +100,9 @@ def train_and_evaluate_pivot_tree(params, idx, train_embeddings, train_labels, t
 
     return pt, accuracy
 
-#Parametri Pivottree
 PARAM_GRID = {
-    "max_depth": [3, 4],
-    "min_samples_leaf": [3, 8],
+    "max_depth": [3, 4, 5, 6],
+    "min_samples_leaf": [2, 3, 5, 8],
     "allow_oblique_splits": [False, True]
 }
 PARAM_NAMES = list(PARAM_GRID.keys())
@@ -121,19 +110,17 @@ PARAM_COMBINATIONS = list(product(*PARAM_GRID.values()))
 
 
 if __name__ == "__main__":
-    # Caricamento dati
     dataset = load_dataset()
     train_texts = dataset['train_texts']
     train_labels = dataset['train_labels']
     test_texts = dataset['test_texts']
     test_labels = dataset['test_labels']
 
-    # Generazione embedding
     embeddings = get_embeddings(train_texts, test_texts)
     train_embeddings = embeddings['train']
     test_embeddings = embeddings['test']
 
-    # Reset report
+
     if os.path.exists(REPORT_FILE):
         os.remove(REPORT_FILE)
 

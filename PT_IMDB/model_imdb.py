@@ -15,7 +15,6 @@ current_dir = os.getcwd()
 data_dir = os.path.join(current_dir, "tensorflow_datasets")
 os.makedirs(data_dir, exist_ok=True)
 
-#Caricamento del dataset con cache: il dataset viene scaricato una sola
 def load_dataset():
     dataset_file = os.path.join(data_dir, "imdb_dataset.joblib")
     
@@ -56,14 +55,12 @@ def load_dataset():
     joblib.dump(data, dataset_file)
     return data
 
-# Carica dati
 dataset = load_dataset()
 train_texts = dataset['train_texts']
 train_labels = dataset['train_labels']
 test_texts = dataset['test_texts']
 test_labels = dataset['test_labels']
 
-#Embedding con cache
 def get_embeddings():
     embeddings_file = os.path.join(data_dir, "embeddings.joblib")
     
@@ -86,19 +83,18 @@ def get_embeddings():
     joblib.dump(embeddings, embeddings_file)
     return embeddings
 
-# Ottieni embeddings
 embeddings = get_embeddings()
 train_embeddings = embeddings['train']
 test_embeddings = embeddings['test']
-
+nome_cartella = "Output"
+os.makedirs(nome_cartella, exist_ok=True)
 print("Addestramento PivotTree...")
 pt = PivotTree(
-    max_depth=4,
-    min_samples_leaf=8,
+    max_depth=6,
+    min_samples_leaf=3,
     model_type='clf',
     pairwise_metric='euclidean',
-    random_state=42,
-    verbose=True
+    allow_oblique_splits = True
 )
 
 pt.fit(train_embeddings, train_labels)
@@ -107,9 +103,16 @@ predictions = pt.predict(test_embeddings)
 accuracy = np.mean(predictions == test_labels)
 print(f"Test Accuracy: {accuracy:.4f}")
 
+
+
 print("---Generazione file di valutazione ---")
-report_modello(pt, (test_embeddings, test_labels))
+report_modello(pt, (test_embeddings, test_labels),nome_file='Output/valutazione_modello.txt')
+print("\t***File di valutazione del modello creato***\n\n")
 
-visualize_tree_with_pivots(pt)
 
+print("Stampa dell'albero decisioanle basato sui pivot")
+visualize_tree_with_pivots(pt, output_file="Output/albero_con_pivot.txt")
+print("\n\n\n")
+
+print("Percorso decisonale per la classificazione dell'istanza di test[2]")
 show_decision_path(pt,2, test_embeddings,test_labels)
