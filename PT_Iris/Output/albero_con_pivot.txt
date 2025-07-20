@@ -3,12 +3,12 @@
 ========================= ALBERO DECISIONALE CON PIVOT =========================
 ================================================================================
 
-|-+ if node_id: 0  medoid: 42 <= 1.6:
+|-+ if node_id: 0  pivot: 40 <= 1.58:
   |--> label: 0 (31, 0.3)
   |-+ if node_id: 2  pivot: 73 <= 1.54:
     |--> label: 1 (32, 0.3)
-    |-+ if -0.46 node_id: 4  pivot: 4 + 0.58 node_id: 4  medoid: 39 <= -0.41:
-      |-+ if node_id: 7  pivot: 53 <= 0.97:
+    |-+ if -0.44 node_id: 4  pivot: 4 + 0.58 node_id: 4  medoid: 39 <= -0.38:
+      |-+ if node_id: 7  pivot: 47 <= 0.57:
         |--> label: 2 (7, 0.07)
         |--> label: 1 (4, 0.04)
       |--> label: 2 (31, 0.3)
@@ -25,12 +25,12 @@ Nodo 0:
   - Impurità: 0.6644897959183673
 
   Pivot discriminativi:
-    - Pivot 0: Istanza 51
-      Valori: sepal length (cm)=4.400, sepal width (cm)=2.900, petal length (cm)=1.400, petal width (cm)=0.200
-    - Pivot 1: Istanza 39
-      Valori: sepal length (cm)=6.700, sepal width (cm)=3.000, petal length (cm)=5.000, petal width (cm)=1.700
-    - Pivot 2: Istanza 31
-      Valori: sepal length (cm)=6.200, sepal width (cm)=3.400, petal length (cm)=5.400, petal width (cm)=2.300
+    - Pivot 0: Istanza 40
+      Valori: sepal length (cm)=4.900, sepal width (cm)=3.100, petal length (cm)=1.500, petal width (cm)=0.200
+    - Pivot 1: Istanza 75
+      Valori: sepal length (cm)=6.100, sepal width (cm)=3.000, petal length (cm)=4.600, petal width (cm)=1.400
+    - Pivot 2: Istanza 66
+      Valori: sepal length (cm)=6.200, sepal width (cm)=2.800, petal length (cm)=4.800, petal width (cm)=1.800
 
   Medoidi descrittivi:
     - Medoide 0: Istanza 42
@@ -41,7 +41,7 @@ Nodo 0:
       Valori: sepal length (cm)=6.500, sepal width (cm)=3.000, petal length (cm)=5.500, petal width (cm)=1.800
 
   Pivot usati per lo split:
-    - node_id: 0  medoid: 42
+    - node_id: 0  pivot: 40
 
 ----------------------------------------
 
@@ -87,8 +87,8 @@ Nodo 3:
   - Impurità: 0.060546875
 
   Pivot discriminativi:
-    - Pivot 0: Istanza 29
-      Valori: sepal length (cm)=6.000, sepal width (cm)=2.200, petal length (cm)=4.000, petal width (cm)=1.000
+    - Pivot 0: Istanza 10
+      Valori: sepal length (cm)=5.800, sepal width (cm)=2.700, petal length (cm)=4.100, petal width (cm)=1.000
     - Pivot 1: Istanza 101
       Valori: sepal length (cm)=4.900, sepal width (cm)=2.500, petal length (cm)=4.500, petal width (cm)=1.700
 
@@ -107,8 +107,8 @@ Nodo 4:
   - Impurità: 0.24489795918367352
 
   Pivot discriminativi:
-    - Pivot 0: Istanza 67
-      Valori: sepal length (cm)=7.000, sepal width (cm)=3.200, petal length (cm)=4.700, petal width (cm)=1.400
+    - Pivot 0: Istanza 90
+      Valori: sepal length (cm)=6.900, sepal width (cm)=3.100, petal length (cm)=4.900, petal width (cm)=1.500
     - Pivot 1: Istanza 4
       Valori: sepal length (cm)=7.200, sepal width (cm)=3.600, petal length (cm)=6.100, petal width (cm)=2.500
 
@@ -130,8 +130,8 @@ Nodo 7:
   - Impurità: 0.49586776859504134
 
   Pivot discriminativi:
-    - Pivot 0: Istanza 58
-      Valori: sepal length (cm)=6.300, sepal width (cm)=2.500, petal length (cm)=4.900, petal width (cm)=1.500
+    - Pivot 0: Istanza 47
+      Valori: sepal length (cm)=6.000, sepal width (cm)=2.700, petal length (cm)=5.100, petal width (cm)=1.600
     - Pivot 1: Istanza 53
       Valori: sepal length (cm)=6.000, sepal width (cm)=2.200, petal length (cm)=5.000, petal width (cm)=1.500
 
@@ -142,7 +142,7 @@ Nodo 7:
       Valori: sepal length (cm)=6.200, sepal width (cm)=2.800, petal length (cm)=4.800, petal width (cm)=1.800
 
   Pivot usati per lo split:
-    - node_id: 7  pivot: 53
+    - node_id: 7  pivot: 47
 
 ----------------------------------------
 

@@ -33,14 +33,14 @@ Class Info:
 
 
 ---Generazione file di valutazione ---
-	***Risultati salvati in 'valutazione_modello.txt' (formato .txt)
+	***Risultati salvati in 'Output/valutazione_modello.txt' (formato .txt)
 
 
 	***File di valutazione del modello creato***
 
 
 Stampa dell'albero decisioanle basato sui pivot
-[(True, ['node_id: 0  medoid: 42'], [1.0], np.float64(1.5992960333824158), False, 0), (False, np.int64(0), 31, 0.29523809523809524, 1, 1), (True, ['node_id: 2  pivot: 73'], [1.0], np.float64(1.54473876953125), False, 1), (False, np.int64(1), 32, 0.3047619047619048, 3, 2), (True, ['node_id: 4  pivot: 4', 'node_id: 4  medoid: 39'], [-0.44418317760467807, 0.5839445637292435], np.float64(-0.382937952876091), False, 2), (True, ['node_id: 7  pivot: 53'], [1.0], np.float64(0.9726020991802216), False, 3), (False, np.int64(2), 7, 0.06666666666666667, 9, 4), (False, np.int64(1), 4, 0.0380952380952381, 10, 4), (False, np.int64(2), 31, 0.29523809523809524, 8, 3)]
+[(True, ['node_id: 0  pivot: 40'], [1.0], np.float64(1.583888590335846), False, 0), (False, np.int64(0), 31, 0.29523809523809524, 1, 1), (True, ['node_id: 2  pivot: 73'], [1.0], np.float64(1.54473876953125), False, 1), (False, np.int64(1), 32, 0.3047619047619048, 3, 2), (True, ['node_id: 4  pivot: 4', 'node_id: 4  medoid: 39'], [-0.44418317760467807, 0.5839445637292435], np.float64(-0.382937952876091), False, 2), (True, ['node_id: 7  pivot: 47'], [1.0], np.float64(0.5720575153827667), False, 3), (False, np.int64(2), 7, 0.06666666666666667, 9, 4), (False, np.int64(1), 4, 0.0380952380952381, 10, 4), (False, np.int64(2), 31, 0.29523809523809524, 8, 3)]
 
 
 
@@ -49,4 +49,4 @@ Percorso decisonale per la classificazione dell'istanza di test[2]
 
 Sample: [7.7 2.6 6.9 2.3]...
 Predicted: 2, Actual: 2
-Decision path: ['node_id: 0  medoid: 42'] > 1.6 & ['node_id: 2  pivot: 73'] > 1.54 & -0.44 ['node_id: 4  pivot: 4'] + 0.58 ['node_id: 4  medoid: 39'] > -0.38 --> 2
+Decision path: ['node_id: 0  pivot: 40'] > 1.58 & ['node_id: 2  pivot: 73'] > 1.54 & -0.44 ['node_id: 4  pivot: 4'] + 0.58 ['node_id: 4  medoid: 39'] > -0.38 --> 2

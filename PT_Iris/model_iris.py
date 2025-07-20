@@ -10,7 +10,10 @@ from Utilis import report_modello
 from Utilis import get_pivots_and_medoids
 from Utilis import visualize_tree_with_pivots
 from Utilis import show_decision_path
+import os
 
+nome_cartella = "Output"
+os.makedirs(nome_cartella, exist_ok=True)
 
 #Caricamento dataset + info
 data = load_iris()
@@ -54,12 +57,12 @@ pt.fit(X_train, y_train)
 print("\t***Fine apprendimento modello***\n\n")
 
 print("---Generazione file di valutazione ---")
-report_modello(pt, (X_test, y_test))
+report_modello(pt, (X_test, y_test),nome_file='Output/valutazione_modello.txt')
 print("\t***File di valutazione del modello creato***\n\n")
 
 
 print("Stampa dell'albero decisioanle basato sui pivot")
-visualize_tree_with_pivots(pt, feature_names=feature_names)
+visualize_tree_with_pivots(pt, feature_names=feature_names, output_file="Output/albero_con_pivot.txt")
 print("\n\n\n")
 
 print("Percorso decisonale per la classificazione dell'istanza di test[2]")

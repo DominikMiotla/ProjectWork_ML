@@ -7,9 +7,9 @@ In questo repository è implementato un modello PivotTree applicato al dataset I
 - `RuleTree.py`: Implementazione base di un albero decisionale tradizionale.
 - `Utilis.py`:Funzioni di supporto per analisi, visualizzazione e interpretazione dei modelli PivotTree.
 
-- `albero_con_pivot.txt`: File di testo contenente la struttura dell’albero decisionale con pivot discriminativi e descrizioni. Generato dalla funzione `visualize_tree_with_pivots`.
-- `info_fit.txt`:Report sintetico con informazioni sul dataset e dettagli dell’addestramento, prodotto dallo script `model_iris.py`, attraverso ridirezione dello stdout.
-- `valutazione_modello.txt`: Report sulle performance del modello, generato dalla funzione `report_modello`.
+- `Output/albero_con_pivot.txt`: File di testo contenente la struttura dell’albero decisionale con pivot discriminativi e descrizioni. Generato dalla funzione `visualize_tree_with_pivots`.
+- `Output/info_fit.txt`:Report sintetico con informazioni sul dataset e dettagli dell’addestramento, prodotto dallo script `model_iris.py`, attraverso ridirezione dello stdout.
+- `Output/valutazione_modello.txt`: Report sulle performance del modello, generato dalla funzione `report_modello`.
 
 #### Dettagli sul file info_fit.txt
 Il `file info_fit.txt` contiene:

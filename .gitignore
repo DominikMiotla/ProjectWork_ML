@@ -9,6 +9,8 @@ PT_NoVax_LLM/Dataset/new_Covid.csv
 PT_NoVax_LLM/output/embeddings_NewDataset.joblib
 DT_NoVax/new_Covid.csv
 DT_NoVax/embeddings_NewDataset.joblib
+__pycache__/
+
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,macos
 ### macOS ###
