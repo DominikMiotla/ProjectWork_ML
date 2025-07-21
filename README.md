@@ -1,82 +1,52 @@
-# Pivot Tree Project
+# PROJECT WORK ML
+Questo repository raccoglie diverse implementazioni e sperimentazioni di Pivot Tree e altri modelli su differenti dataset. La struttura del repository è organizzata per facilitare la visualizzazione e la valutazione dei risultati ottenuti.
 
-Questo progetto implementa e addestra **Pivot Trees**, una variante degli alberi decisionali che utilizza istanze rappresentative (pivot) per effettuare le suddivisioni. 
+# Struttura del Repository
+- `PivotTree/`
+Contiene i file necessari per addestrare un Pivot Tree su un nuovo dataset, incluse le funzioni di supporto per la visualizzazione del modello.
+- notebook `DrawPivotTree.ipynb` permette di graficare il Pivot Tree e salvarlo in formato `PNG`.
 
----
+- `PT_Iris/` Implementazione del Pivot Tree sul dataset Iris.
 
-## Caratteristiche principali
+- `PT_IMDB/` Implementazione del Pivot Tree sul dataset IMDB.
 
-### Implementazione dei Pivot Tree
+`PT_NoVax_G_CT/` Implementazione del Pivot Tree sul dataset NoVax, basato su testo. Utilizza feature ottenute **Group** e **Clean Text**.
 
-- **Pivot Discriminativi**  
-  Punti vicini ai confini decisionali che aiutano a separare le classi.
-  
-- **Pivot Descrittivi (Medoids)**  
-  Rappresentanti centrali dei cluster di ciascuna classe.
+- `PT_NoVax_CT/` Implementazione del Pivot Tree sul dataset NoVax, utilizzando la featur **Clean Text**.
 
-- **Suddivisione Ibrida**  
-  Combina pivot discriminativi e descrittivi per una migliore separazione delle classi.
+- `PT_NoVax_CT_A/` Implementazione del Pivot Tree sul dataset NoVax, con feature **Clean Text** e **data augmentation**(dopo embedding) per la classe 0.
 
+- `DataAugmentation_LLM/`
+Contiene lo script per la data augmentation del dataset originale, focalizzata sulla classe con minore supporto, utilizzando un LLM (Grok).
 
----
+- `PT_NoVax_LLM/`
+Implementazione del Pivot Tree sul dataset NoVax aumentato con LLM.
 
-## Utilità: `Utilis.py`
+- `DT_NoVax/`
+Implementazione di un Decision Tree sul dataset NoVax aumentato con LLM.
 
-### Valutazione del Modello
+- `KNN_NoVax/`
+Implementazione del K-Nearest Neighbors (KNN) sul dataset NoVax aumentato con LLM.
 
-- Report di classificazione
-- Matrici di confusione
-- Metriche di accuratezza
+- `Report.xlsx`
+File Excel che contiene un report con i risultati ottenuti dagli esperimenti con Pivot Tree.
 
-### Visualizzazione dell'Albero
+- `environment.yml`
+File YAML contenente le dipendenze necessarie per ricreare l’ambiente Conda utilizzato nei progetti.
 
-- Estrazione di pivot e medoids
-- Formattazione dei percorsi decisionali
-- Generazione di alberi in formato leggibile
+## Gestione dell'Ambiente Conda
+### Creazione di un nuovo ambiente Conda
+Per creare un nuovo ambiente Conda con tutte le dipendenze specificate nel file `environment.yml`, eseguire:
 
-### Ispezione dei Dati
-
-- Visualizzazione delle istanze
-- Analisi di singoli campioni
-
----
-
-## Differenze Chiave: Medoids vs Pivot Discriminativi
-
-| Caratteristica         | Medoids                        | Pivot Discriminativi           |
-|------------------------|--------------------------------|---------------------------------|
-| **Scopo**              | Rappresentazione della classe  | Identificazione del confine     |
-| **Posizione**          | Centro del cluster             | Vicino ai confini               |
-| **Selezione**          | Minimizza la distanza interna  | Massimizza la separazione       |
-
-
----
-
-
-## 📊 Modelli Addestrati
-
-### 🌸 Iris Dataset
-- **Tipo**: Classificazione multi-classe (3 specie di fiori)  
-- **Feature**: 4 misurazioni botaniche  
-- **Uso dei Pivot**:  
-  - Medoids per rappresentare fiori tipici  
-  - Pivot discriminativi per distinguere specie simili
-
-### 🎬 IMDB Sentiment Analysis
-- **Tipo**: Classificazione binaria (recensioni positive/negative)  
-- **Feature**: Embedding testuali (TF-IDF o Word Vectors)  
-- **Uso dei Pivot**:  
-  - Medoids per recensioni tipiche  
-  - Pivot discriminativi per distinguere sfumature di sentiment
-
----
-
-## Per iniziare
-
-### Setup dell’Ambiente
-
-Assicurati di avere `conda` installato, quindi esegui:
-
-```bash
+```
 conda env create -f environment.yml
-conda activate PW_ML
+```
+Questo comando creerà un nuovo ambiente (ad esempio, mio_ambiente) con tutte le librerie e versioni indicate.
+
+### Aggiornamento di un ambiente Conda esistente
+Per aggiornare un ambiente Conda già esistente:
+
+```
+conda env update -n mio_ambiente -f environment.yml --prune
+```
+L’opzione `--prune` rimuove i pacchetti non più elencati nel file YAML.
