@@ -46,10 +46,10 @@ def main():
     
 
     param_grid = {
-        'criterion': ['entropy'],
-        'max_depth': [10, 5],
-        'min_samples_split': [5],
-        'min_samples_leaf' : [20]
+        'criterion': ['entropy','gini'],
+        'max_depth': [4, 8, 10, 15],
+        'min_samples_split': [10, 20, 30],
+        'min_samples_leaf' : [20, 50, 70]
     }
     
 
