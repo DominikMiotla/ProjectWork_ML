@@ -9,6 +9,9 @@ import numpy as np
 from imblearn.over_sampling import SMOTE
 from Utilis import report_modello
 from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.manifold import TSNE
 
 def stampa_distribuzione(y, nome):
     distribuzione = y.value_counts(normalize=True) * 100
@@ -95,6 +98,27 @@ def get_embeddings(data_dir,train_texts,test_texts):
     joblib.dump(embeddings, embeddings_file)
     return embeddings
 
+def plot_embeddings(embeddings, labels, title="Distribuzione embeddings", save_path=None):
+    print("Esecuzione t-SNE per visualizzazione...")
+    tsne = TSNE(n_components=2, random_state=42, perplexity=30, max_iter=1000)
+    embeddings_2d = tsne.fit_transform(embeddings)
+
+    df_plot = pd.DataFrame()
+    df_plot['x'] = embeddings_2d[:, 0]
+    df_plot['y'] = embeddings_2d[:, 1]
+    df_plot['class'] = labels.values
+
+    plt.figure(figsize=(10, 8))
+    sns.scatterplot(data=df_plot, x='x', y='y', hue='class', palette='Set1', alpha=0.6)
+    plt.title(title)
+    plt.xlabel("Dimensione 1")
+    plt.ylabel("Dimensione 2")
+    plt.legend(title="Classe")
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path)
+    plt.show()
 
 if __name__ == "__main__":
     os.makedirs("output", exist_ok=True)
@@ -128,17 +152,13 @@ if __name__ == "__main__":
     print("Shape di train_embeddings:", train_embeddings.shape)
     print("Shape di test_embeddings:", test_embeddings.shape)
 
-
-
-    scaler = MinMaxScaler()
-    train_scaled = scaler.fit_transform(train_embeddings)
-    test_scaled = scaler.transform(test_embeddings)
+    # Visualizzazione degli embeddings
+    plot_embeddings(train_embeddings, y_train, save_path="output/tsne_embeddings_train.png")
 
 
     print("Addestramento PivotTree...")
-
     # Intervallo dei parametri da testare
-    max_depth_values = range(3, 5)
+    max_depth_values = range(3, 7)
     min_samples_leaf_values = range(1, 3)
 
     for max_depth in max_depth_values:
@@ -154,7 +174,7 @@ if __name__ == "__main__":
                 random_state=42,
                 allow_oblique_splits=True
             )
-            pt.fit(train_scaled, y_train.values)
-            dati_test = (test_scaled, y_test.values)
+            pt.fit(train_embeddings, y_train.values)
+            dati_test = (test_embeddings, y_test.values)
             nome_file = f'output/Report_MD{max_depth}_MSL{min_samples_leaf}.txt'
             report_modello(pt, dati_test, nome_file=nome_file)
