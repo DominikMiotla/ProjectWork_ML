@@ -15,6 +15,8 @@ PT_NoVax_CT_A/Dataset/post_cleaned_it_only_GEMMA3_finale.csv
 PT_NoVax_CT_A/output/embeddings_Group_clean_text.joblib
 kNN_NoVax/embeddings_NewDataset.joblib
 kNN_NoVax/new_Covid.csv
+PT_NoVax_CT_FIX_DEP/Dataset/post_cleaned_it_only_GEMMA3_finale.csv
+PT_NoVax_CT_FIX_DEP/output/embeddings_Group_clean_text.joblib
 __pycache__/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos
