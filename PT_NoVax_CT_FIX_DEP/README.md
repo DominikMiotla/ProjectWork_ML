@@ -3,6 +3,7 @@
 Questo progetto ha lo scopo di **addestrare un modello PivotTree** per classificare commenti social in due categorie:
 - **Classe 0** → Non No-Vax
 - **Classe 1** → No-Vax
+Vengono utilizzati iperparametri più grandi nelle foglie. Sono stati risolti gli errori nel calcolo.
 
 Il dataset contiene **commenti in lingua italiana**, raccolti da post sui social.
 # Dataset Info
@@ -75,8 +76,8 @@ Mantiene solo le classi YES e NO, mappandole in:
 
 ## Addestramento Modelli
 Nel main script (model.py) vengono testate diverse configurazioni di PivotTree variando:
-- max_depth (da 3 a 12)
-- min_samples_leaf (1 o 5)
+- max_depth [4,6]
+- min_samples_leaf [80,100,200]
 
 Per ogni combinazione viene generato un report di classificazione salvato nella cartella output/.
 
@@ -116,25 +117,4 @@ La funzione `plot_embeddings` usa t-SNE per proiettare gli embeddings in 2D e sa
 ---
 
 ## Sintesi delle Prestazioni
-
-| Max_depth | Precision (range) | Recall (range) | Note critiche                                      |
-|-----------|-------------------|----------------|----------------------------------------------------|
-| 3         | 0.45              | 0.07           | Prestazioni basse                     |
-| 4         | 0.69              | 0.04           | Trade-off sfavorevole: ↑ Precision, ↓ Recall      |
-| ≥5        | 0.53–0.55         | 0.08–0.10      | Stabilizzazione su valori              |
-
----
-
-## Considerazioni
-
-- **Problema non risolvibile con tuning:**  
-  L'assenza di miglioramenti oltre `max_depth = 5` e la scarsa sensibilità a `min_samples_leaf` indicano che il limite è strutturale, non legato agli iperparametri.
-
-- **Possibili cause:**  
-  - Marcato squilibrio di classe a sfavore della classe 0  
-  - Caratteristiche poco discriminanti  
-  - Sovrapposizione tra classi
-
-- **Trade-off critico a `max_depth = 4`:**  
-  Il picco di Precision (0.69) è accompagnato da Recall minimo (0.04) → inaccettabile nei task in cui i falsi negativi sono critici.
-
+Le prestazioni del modello non sono migliorante. Rimane una prestazione sempre molto scarsa sulla classe con minore supporto, classe 0.

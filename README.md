@@ -14,6 +14,8 @@ Contiene i file necessari per addestrare un Pivot Tree su un nuovo dataset, incl
 
 - `PT_NoVax_CT/` Implementazione del Pivot Tree sul dataset NoVax, utilizzando la featur **Clean Text**.
 
+- `PT_NoVax_CT_FIX_DEP/` Implementazione del Pivot Tree sul dataset NoVax, utilizzando la featur **Clean Text**. Iperparametri più grandi per il numeor di istanze nelle foglie, riolsto il problema in cui potevano essere presenti errori nel calcolo.
+
 - `PT_NoVax_CT_A/` Implementazione del Pivot Tree sul dataset NoVax, con feature **Clean Text** e **data augmentation**(dopo embedding) per la classe 0.
 
 - `DataAugmentation_LLM/`
